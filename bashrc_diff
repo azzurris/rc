@@ -1,0 +1,24 @@
+103a104,126
+> 
+> # default to open all these command using screen
+> vim() {
+> 	screen vim $*
+> }
+> 
+> alias vi='vim'
+> 
+> man() {
+> 	screen man $*
+> }
+> 
+> info() {
+> 	screen info $*
+> }
+> 
+> watch() {
+> 	screen watch $*
+> }
+> 
+> ssh() {
+> 	screen ssh $*
+> }
