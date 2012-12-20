@@ -1,0 +1,4 @@
+rc
+==
+
+all rc file
