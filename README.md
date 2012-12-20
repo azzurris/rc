@@ -2,6 +2,11 @@ rc
 ==
 all rc file
 
+vim file
+------------------
+including doc colors syntax autoload and plugin folders.
+put them into ~/.vim/
+
 lookupfile.sh
 -------------------
 this is for lookupfile.vim plugin using.
