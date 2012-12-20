@@ -183,11 +183,10 @@ let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
 "function key mapping
 "======================================
 "find next and previous 
-"   <F2> is the shortcut to tagbar
-map <F3> #
-map <F4> *
+nmap <F3>	#
+nmap <F4> 	*
 "   <F5> is the shortcut to lookupfile LUTAGs
-map <F6> :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr> 
+"map <F6> :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr> 
 map <F7> :sp project.files<CR>
 "   <F8>    is for NERDTree toggle	
 map <F9> :set invhlsearch<CR>
@@ -199,10 +198,6 @@ nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
-"" \l to highlight current line
-"" 'l to jump to it
-"" :match to cleat
-:nnoremap <silent> <Leader>l ml:execute 'match Search /\%'.line('.').'l/'<CR>
 ""	use jj to simulate <ESC> 
 imap jj <ESC>
 ""	user \d to see what's unsaved change

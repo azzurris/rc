@@ -21,9 +21,6 @@ put it in the user root folder
 ------------------
 rename the screenrc to .screenrc
 put it in the user root folder
-
-bashrc_diff
-------------------
-add the file's content into .bashrc
-
+to use screen and vim with putty,set the putty:Terminal -> Keyboard -> Function
+keys: **Xterm R6**
 
