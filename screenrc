@@ -1,28 +1,19 @@
-shell bash
 # open the 256color support of screen
 termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
-# Show Time and List of Windows within the last line
-hardstatus on
-hardstatus alwayslastline
-#hardstatus string "%{.bW}%-w%{.rY}%n %t%{-}%+w %=%{..G} %H(%l) %{..Y} %Y/%m/%d--%c:%s "
-hardstatus string "%{.B}%-w%{BW}%n %t%{-}%+w %=%{..w} $LOGNAME%H(%l) %{..W} %Y/%m/%d--%c:%s "
-#hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
-#hardstatus string "%{+b Rk}(%{-b g}$LOGNAME@%H%{+b R}) (%{-b g}%C %a%{+b R}) %{-b g} %n %t %h"
-
+# refresh the screen when quit some program,sush as vim
+altscreen on
+# title
+shelltitle '$ |bash'
 # skip the startup message
 startup_message off
-#
 # Automatically detach on hangup.
 autodetach on
-#
 # If a screen dies, don't freeze the whole screen waiting for it.
 nonblock on
-#
 # UTF-8 is necessary.
 defutf8 on
 # Change default scrollback value for new windows: scrollback 10000
 defscrollback 10000
-#
 # start with visual bell as default
 vbell off
 vbell_msg "Bell on %t (%n)"
@@ -30,3 +21,23 @@ vbell_msg "Bell on %t (%n)"
 bind c screen 1
 bind 0 select 10
 screen 1
+# vt100 terminal
+# bind alt+1 to 4 to select screen 1 to 4 
+# bind alt+f,alt+b to select next and prev screen 
+bindkey "\033\061" select 1
+bindkey "\033\062" select 2 
+bindkey "\033\063" select 3
+bindkey "\033\064" select 4
+bindkey "\033\146" next
+bindkey "\033\142" prev
+
+# Show Time and List of Windows within the last line
+hardstatus on
+hardstatus alwayslastline
+##hardstatus string "%{.B}%-w%{BW}%n %t%{-}%+w %=%{..w} $LOGNAME%H(%l) %{..W} %Y/%m/%d--%c:%s "
+hardstatus string "%{.B}%-w%{BW}%n %t%{-}%+w %=%{..w} %{..W}$LOGNAME%H(%l)"
+
+
+#termcapinfo xterm* ti@:te@
+#terminfo xterm*|rxvt ti@:te@
+#termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
