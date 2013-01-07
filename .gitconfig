@@ -1,0 +1,29 @@
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	email = hutj@marvell.com
+	name = Tianjun
+[alias]
+	br = branch
+	co = checkout
+	rb = rebase
+	cp = cherry-pick
+	ci = commit
+	st = status
+	ls = log --pretty=format:'%C(yellow)%h%Creset %ai(%ar)%n>>%aN%n%s%n%C(70)%d%Creset%n' --abbrev-commit
+	l1 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -1 
+	l2 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -2 
+	l3 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -3 
+	l4 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -4 
+	l5 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -5
+	l6 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -6
+	l7 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -7
+	l8 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -8
+	l9 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -9
+	l10 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -10 
+	ll = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -10 
+	l15 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -15 
+	l20 = log --pretty=format:'%C(yellow)%h%Creset %ai	%C(yellow)%aN%Creset	%s' --abbrev-commit -20
