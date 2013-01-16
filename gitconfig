@@ -1,0 +1,33 @@
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	email = hutj@marvell.com
+	name = hutj
+[alias]
+	br = branch
+	co = checkout
+	rb = rebase -i
+	cp = cherry-pick
+	ci = commit
+	st = status
+	ll = log --oneline -10
+	la = log --oneline -10 --decorate
+	l1 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -1 --date=short 
+	l2 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -2 --date=short 
+	l3 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -3 --date=short 
+	l4 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -4 --date=short 
+	l5 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -5 --date=short
+	l6 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -6 --date=short
+	l7 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -7 --date=short
+	l8 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -8 --date=short
+	l9 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -9 --date=short
+	ld = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -10 --date=short
+	l10 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -10 --date=short
+	l15 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -15 --date=short
+	l20 = log --pretty=format:'%C(yellow)%h%Creset %ad	%s	%C(208)[%aN]%Creset' -20 --date=short
+#	ll = "!git log --pretty=format:'%C(yellow)%h%Creset|%ai|%aN|%s' -10 \
+#		| while IFS='|' read hash time author message; do printf '%s %-14s %-80s %s\n' \"$hash\" \"$author\" \"$message\" \"$time\"; done"
+
