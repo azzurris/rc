@@ -1,22 +1,27 @@
 syntax enable
 syntax on
+"let mapleader = " "
 set t_Co=256
 colorscheme Mustang
+"mustang's color milkwhite:230 orange_red:208
 ""colorscheme molokai
 ""colorscheme wombat256mod
 ""colorscheme sorcerer
 ""hi StatusLine ctermfg=white	ctermbg=blue
 ""hi Function ctermfg=blue
+"set showtabline=2
+"hi TabLineFill ctermfg=blue
+"hi TabLineSel ctermfg=blue ctermbg=white
+"hi TabLine ctermfg=white ctermbg=blue
+
 hi Search  ctermfg=253 ctermbg=66	"molokai's highlight search
 hi VisualNOS                  ctermbg=32
 hi Visual                     ctermbg=32
-set ruler
+set ruler  
 set linebreak
 set number
 set showmatch
 set is
-set ai
-set sw=4
 set mouse=a
 set showcmd
 set cursorline 
@@ -45,13 +50,21 @@ set noerrorbells                " don't beep
 nnoremap / /\v
 vnoremap / /\v
 " " Speed up scrolling of the viewport slightly
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
 ""remember the last place of file
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \ exe "normal g`\"" |
      \ endif
+
+
+"======================================
+"tab	
+"======================================
+"switch to existing tab page if it contains a window displaying the target
+"buffer, instead of duplicating it in a new tab.
+set switchbuf+=usetab,newtab
 
 
 "======================================
@@ -95,7 +108,7 @@ map <leader>s :lcs find s <cword><CR> :lop 6<CR>
 
 
 "======================================
-"tag list
+"taglist
 "======================================
 if &diff
     let Tlist_Auto_Open=0 "don't auto pen when compare two files
@@ -107,15 +120,16 @@ let Tlist_Use_Right_Window=1
 let Tlist_Auto_Update=1 
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Exit_OnlyWindow=1 
-let Tlist_WinWidth=40
+let Tlist_WinWidth=45
+map <F11> :TlistToggle<CR>
 
 
 "======================================
 "tagbar
 "======================================
-nmap <silent> <F10> :TagbarToggle<CR>
+nmap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_ctags_bin = 'ctags'
-let g:tagbar_width = 30
+let g:tagbar_width = 38
 
 
 "======================================
@@ -123,7 +137,7 @@ let g:tagbar_width = 30
 "======================================
 ""auto open the NERDTree
 ""autocmd VimEnter * NERDTree    
-map <F8> :NERDTreeToggle<CR>
+map <F10> :NERDTreeToggle<CR>
 
 
 "======================================
@@ -134,7 +148,7 @@ set laststatus=2
 set encoding=utf-8
 ""let g:Powerline_symbols = 'unicode'
 ""let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
-let g:Powerline_dividers_override = ['  ', ' ', '  ', ' ']
+let g:Powerline_dividers_override = ['|', '|', '|', '|']
 ""let g:Powerline_theme = 'solarized256'
 let g:Powerline_colorscheme = 'solarized256'
 let g:Powerline_stl_path_style = 'relative'
@@ -154,9 +168,6 @@ if filereadable("./filenametags")
 ""let g:LookupFile_TagExpr = 'g:myLookupFileTagExpr'
 let g:LookupFile_TagExpr = '"./filenametags"'
 endif
-nmap <silent> <leader>f :LUTags<cr>
-nmap <silent> <leader>b :LUBufs<cr>
-nmap <silent> <leader>w :LUWalk<cr>
 
 " lookup file with ignore case
 function! LookupFile_IgnoreCaseFunc(pattern)
@@ -171,28 +182,39 @@ catch
 finally
 		let &tags = _tags
 endtry
-
 "show the matches for what is typed so far.
 let files = map(tags, 'v:val["filename"]')
 return files
 endfunction
 let g:LookupFile_LookupFunc = 'LookupFile_IgnoreCaseFunc'
 
+nmap <silent> <leader>f :LUTags<cr>
+""nmap <silent> <leader>b :LUBufs<cr>
+""nmap <silent> <leader>w :LUWalk<cr>
 	
+
 "======================================
 "function key mapping
 "======================================
 "find next and previous 
+"    <F2>   is for mouse toggle in plugin folder
 nmap <F3>	#
 nmap <F4> 	*
 "   <F5> is the shortcut to lookupfile LUTAGs
-"map <F6> :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr> 
-map <F7> :sp project.files<CR>
-"   <F8>    is for NERDTree toggle	
+map <F6> :lv /<c-r>=expand("<cword>")<cr>/ %<cr>:lw<cr> 
+map <F7> <Plug>MarkClear
+map <F8> <Plug>MarkSet
 map <F9> :set invhlsearch<CR>
-"   <F10>   is for tagbar toggle
-map <F11> :TlistToggle<CR>
-"   <F12>   is for mouse toggle in plugin folder
+"   <F10> is for nerdtree toggle
+"   <F11> is for Tlist toggle
+"   <F12> is for tagbar toggle
+"map <leader>m to highlight the current words
+"map <leader>n to clear highlight the current words or all highlight
+
+
+" bind the ctrl+3 to ctrl+o ,ctrl+4 to ctrl+i 
+nmap <C-B> <C-O>
+nmap <C-F> <C-I>
 
 nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
@@ -202,7 +224,15 @@ nmap <C-L> <C-W>l
 imap jj <ESC>
 ""	user \d to see what's unsaved change
 nmap <leader>d :w !diff -u % -<CR>
-
+" visual-mark
+" mm to mark/unmark a line
+" mn to switch next marked line
+" mp to switch prev marked line
+" mc to clear all marked line
+"
+"
+" vi has default mark function
+" use `a to jump to the line&coloum marked with ma
 
 "======================================
 "auto complete the C comment 

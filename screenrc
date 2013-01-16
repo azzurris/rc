@@ -22,22 +22,43 @@ bind c screen 1
 bind 0 select 10
 screen 1
 # vt100 terminal
-# bind alt+1 to 4 to select screen 1 to 4 
-# bind alt+f,alt+b to select next and prev screen 
+# bind alt+1 to 5 to select screen 1 to 5 
+# bind alt+h,alt+l and alt+` to select next and prev screen 
 bindkey "\033\061" select 1
 bindkey "\033\062" select 2 
 bindkey "\033\063" select 3
 bindkey "\033\064" select 4
-bindkey "\033\146" next
-bindkey "\033\142" prev
-
+bindkey "\033\065" select 5 
+bindkey "\033\140" next
+#bindkey "^k" eval "copy" "stuff k"    # enter copy mode and move up one line
+#bindkey "^[k" eval "copy" "stuff ^b"  # enter copy mode and move up one page
+#bindkey -m "^[k" stuff ^b             # move up one page
+#bindkey -m "^k" stuff k               # move up one line
+# bind alt+a to enter in the copy mode
+bindkey "\033\141" eval "copy"  
 # Show Time and List of Windows within the last line
 hardstatus on
 hardstatus alwayslastline
-##hardstatus string "%{.B}%-w%{BW}%n %t%{-}%+w %=%{..w} $LOGNAME%H(%l) %{..W} %Y/%m/%d--%c:%s "
-hardstatus string "%{.B}%-w%{BW}%n %t%{-}%+w %=%{..w} %{..W}$LOGNAME%H(%l)"
+hardstatus string "%{wB}%-w%{Wk} %n %t %{-}%+w%=%{..w} %{..W}[%l]"
+# Doesn't fix scrollback problem on xterm because if you scroll back
+# # all you see is the other terminals history.
+termcapinfo xterm* ti@:te@
+terminfo xterm*|rxvt ti@:te@
+termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
 
+# The vt100 alphabetec key code
+#	Key	Uppercase Code (octal)	Lowercase Code (octal)	Key	Uppercase Code (octal)	Lowercase Code (octal)
+#	A		101						141					N		116						156
+#	B		102						142					O		117						157
+#	C		103						143					P		120						160
+#	D		104						144					Q		121						161
+#	E		105						145					R		122						162
+#	F		106						146					S		123						163
+#	G		107						147					T		124						164
+#	H		110						150					U		125						165
+#	I		111						151					V		126						166
+#	J		112						152					W		127						167
+#	K		113						153					X		130						170
+#	L		114						154					Y		131						171
+#	M		115						155					Z		132						172
 
-#termcapinfo xterm* ti@:te@
-#terminfo xterm*|rxvt ti@:te@
-#termcapinfo xterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
